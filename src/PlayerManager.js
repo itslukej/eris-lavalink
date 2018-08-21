@@ -267,11 +267,12 @@ class PlayerManager extends Collection {
             return Promise.resolve(player);
         }
 
-        let region, node;
+        let region;
+        let node;
 
-        if(options.node) {
-            node = this.nodes.get(options.node);
+        if (options.node) {
             region = node.region;
+            node = this.nodes.get(options.node);
         } else {
             region = this.getRegionFromData(options.region || 'us');
             node = await this.findIdealNode(region);
